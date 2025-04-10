@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Cor de Fundo</title>
+   <style>
+
+#conteudo {
+    display: none; /* Esconde o parágrafo no inicio do site */
+}
+
+   </style>
+    
+</head>
+<body id="perfil">
+        <h2>Tiago da Silva Alves</h2>
+       
+        <button onclick="mudarCor()">Alterar Cor</button>
+        
+
+        <button onclick="toggleconteudo()">Exibir/Esconder Parágrafo</button>
+        <p id="conteudo">Olá,meu nome é Tiago,bem vindo ao meu perfil!</p>
+
+
+<script>
+       
+       function toggleconteudo() {
+            var conteudo = document.getElementById("conteudo");
+            if (conteudo.style.display === "none") {
+                conteudo.style.display = "block"; // Exibe o parágrafo
+            } else {
+                conteudo.style.display = "none"; // Esconde o parágrafo
+            }
+        } 
+         
+       
+
+
+/***************************************************************************************************/
+
+
+function mudarCor() {
+            /* Cria um array com cores diferentes*/
+            
+            const cores = [ "blue", "red", "green", "yellow", "purple", "orange", "pink", "cyan", "magenta",  ];
+            
+            /* Escolhe uma cor aleatória do array*/
+            
+            const corAleatoria = cores[Math.floor(Math.random() * cores.length)];
+            
+            /* Aplica a cor ao fundo do perfil*/
+            
+            document.getElementById('perfil').style.backgroundColor = corAleatoria;
+
+
+       }
+
+
+
+
+    </script>
+
+<hr>
+<input type="text" id="novaHabilidade" placeholder="Digite uma habilidade">
+    <button onclick="adicionarHabilidade()">Adicionar</button>
+    <button onclick="remover()">Remover</button>
+   
+   
+    <h2>HABILIDADES</h2>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+
+
+
+
+
+
+    
+    <ul id="listaHabilidades">
+    </ul>
+
+
+    <Script>
+/*colocando uma nova habilidade na lista*/
+        var habilidades = document.getElementById("listaHabilidades");
+        function adicionarHabilidade() {
+    
+    var novaHabilidade = document.getElementById("novaHabilidade").value;
+    
+    if (novaHabilidade){
+        
+        var li = document.createElement("li");
+        li.textContent = novaHabilidade;
+        habilidades.appendChild(li);
+       
+
+        var lista = document.getElementById('listaHabilidades');
+        lista.insertBefore(li, lista.firstChild);
+
+
+
+
+        document.getElementById("novaHabilidade").value; // Limpa o campo de entrada
+    } 
+    
+    else {
+        alert("Por favor, digite uma habilidade.");
+    }
+
+}
+        
+        
+</script>
+
+<script>
+   
+function remover() {
+    var lista = document.getElementById("listaHabilidades");
+    if (lista.lastChild) {
+        lista.removeChild(lista.lastChild); // Remove o último item da lista
+    } else {
+        alert("Não há mais habilidades para remover.");
+    }
+}
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
